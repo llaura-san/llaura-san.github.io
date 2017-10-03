@@ -45,16 +45,20 @@ border-color: black;
 }
 
 #project1 h1{
-  font-family: Oleo Script, cursive;
+  font-family: 'Oleo Script', 'cursive';
 }
 
-#project2 img{
+#project2 img,{
   height: 700px;
   width:1000px;
 }
 
 #project2 h1{
   font-family: 'Oleo Script', 'cursive';
+}
+
+#project2 li{
+  text-align: center;
 }
 
 #toolbox {
