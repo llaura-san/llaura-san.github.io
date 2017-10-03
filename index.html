@@ -92,7 +92,7 @@
 
 
 <!--new form-->
-      <form id='contact_form' method='POST' style="css/style.css">
+      <form id='contact_form' action="//formspree.io/laurrasann@gmail.com" method='POST'>
         <div class= "form-style-6">
           <div class='large-12 columns'>
           <p id='thanks' style='css/style.css'><h3>
@@ -122,6 +122,7 @@
           <div class="form-style-6">
             <div class='large-12 columns'>
               <input class='button white' type='submit'>
+              <input type="text" name="_gotcha" style="display:none"/>
             </div>
           </div>
         </div>
@@ -149,23 +150,10 @@
           </div>
     </footer>
 
-<script type="text/javascript">
-$('form#contact_form').validate({
-  messages: { },
-  submitHandler: function(form) {
-    $.ajax({
-      url: "//laurrasann@gmail.com",
-      method: "POST",
-      data: $(form).serialize(),
-      dataType: "json",
-      success: function(data) {
-          $("form#contact_form :input").prop("disabled", true);
-          $('#thanks').show();
-      }
-    });
-    return false;
-  }
-});
+<script>
+    var contactform =  document.getElementById('contactform');
+    contactform.setAttribute('action', '//formspree.io/laurrasann@gmail.com');
 </script>
+
 </body>
 </html>
