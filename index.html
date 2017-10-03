@@ -13,9 +13,9 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-<!--Start Navigation-->
+<!---Start Navigation--->
   <nav id="myNavbar" class="navbar navbar-default navbar-inverse navbar-fixed-top" role="navigation">
-      <!--Brand and toggle get grouped for better mobile display-->
+      <!-- Brand and toggle get grouped for better mobile display -->
       <div class="container">
           <div class="navbar-header">
               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbarCollapse">
@@ -26,7 +26,7 @@
               </button>
               <a class="navbar-brand">LAURA SAN</a>
           </div>
-          <!--Navigation-->
+          <!--- Navigation--->
           <div class="collapse navbar-collapse" id="navbarCollapse">
               <ul class="nav navbar-nav">
                   <li class="active"><a href="">Home</a></li>
@@ -39,7 +39,7 @@
   </nav>
 
 
-<!--Start of header-->
+<!---Start of header--->
   <div class="jumbotron text-center" id="about">
       <div class="container">
         <div class="row">
@@ -54,7 +54,7 @@
     <p>Front-End Developer</p>
   </div>
 
-<!--Start of About me section-->
+<!--Start of About me section--->
   <div class="container text-center" id="aboutme">
     <div class="container">
     <div class="row .col-lg-12">
@@ -66,7 +66,7 @@
    </div>
  </div>
 
-<!--Start of toolbox section-->
+<!---Start of toolbox section-->
   <div class="container text-center" id="toolbox">
     <div class="row">
       <div class="col-lg-6" id="one">
@@ -92,11 +92,11 @@
 
 
 <!--new form-->
-      <form id='contact_form' action="//formspree.io/laurrasann@gmail.com" method='POST'>
+      <form id='contact_form' method='POST' style="css/style.css">
         <div class= "form-style-6">
           <div class='large-12 columns'>
           <p id='thanks' style='css/style.css'><h3>
-            Contact Me for Collaborations or Jobs I'll be in touch soon!
+            Thanks for contacting us, we'll be in touch soon!
           </h3></p>
           </div>
           <div class="form-style-6">
@@ -122,12 +122,10 @@
           <div class="form-style-6">
             <div class='large-12 columns'>
               <input class='button white' type='submit'>
-              <input type="text" name="_gotcha" style="display:none"/>
             </div>
           </div>
         </div>
       </form>
-
 <!--start of footer-->
 <div class="container">
   <div class="row">
@@ -151,10 +149,23 @@
           </div>
     </footer>
 
-<script>
-    var contactform =  document.getElementById('contactform');
-    contactform.setAttribute('action', '//formspree.io/laurrasann@gmail.com');
+<script type="text/javascript">
+$('form#contact_form').validate({
+  messages: { },
+  submitHandler: function(form) {
+    $.ajax({
+      url: "//laurrasann@gmail.com",
+      method: "POST",
+      data: $(form).serialize(),
+      dataType: "json",
+      success: function(data) {
+          $("form#contact_form :input").prop("disabled", true);
+          $('#thanks').show();
+      }
+    });
+    return false;
+  }
+});
 </script>
-
 </body>
 </html>
